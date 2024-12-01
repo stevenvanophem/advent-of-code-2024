@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static be.envano.adventofcode.day01.HistorianHysteria.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class HistorianHysteriaTest {
@@ -12,10 +13,12 @@ class HistorianHysteriaTest {
     @Test
     @DisplayName("I can pass the written scenario - PART 1")
     void testPassScenarioPart1() {
-        List<Integer> leftList = List.of(3, 4, 2, 1, 3, 3);
-        List<Integer> rightList = List.of(4, 3, 5, 3, 9, 3);
+        Data data = new Data(
+            List.of(3, 4, 2, 1, 3, 3),
+            List.of(4, 3, 5, 3, 9, 3)
+        );
 
-        int result = HistorianHysteria.calculateTotalDistance(leftList, rightList);
+        int result = data.calculateTotalDistance();
 
         assertThat(result).isEqualTo(11);
     }
@@ -23,10 +26,12 @@ class HistorianHysteriaTest {
     @Test
     @DisplayName("I can pass the written scenario - PART 2")
     void testPassScenarioPart2() {
-        List<Integer> leftList = List.of(3, 4, 1, 3, 3);
-        List<Integer> rightList = List.of(4, 3, 5, 3, 9, 3);
+        Data data = new Data(
+            List.of(3, 4, 1, 3, 3),
+            List.of(4, 3, 5, 3, 9, 3)
+        );
 
-        int result = HistorianHysteria.calculateSimilarityScore(leftList, rightList);
+        int result = data.calculateSimilarityScore();
 
         assertThat(result).isEqualTo(31);
     }
